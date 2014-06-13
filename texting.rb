@@ -9,6 +9,10 @@ end
 
 get '/' do
 	session[:groups] ||= {}
+	if session[:groups].keys.include?(params[:button])
+		groupname = params[:button]
+		redirect to('/' + groupname)
+	end
 
 
 
@@ -30,4 +34,9 @@ post '/' do
 
 
 	erb :'index.html', :locals => {:groups => session[:groups], :member => params[:membername], :number => params[:number], :groupname => params[:groupname]}
+end
+
+get '/:groupname' do
+
+	erb :'specificgroup.html', :locals => {:groups => session[:groups], :member => params[:membername], :number => params[:number], :groupname => params[:groupname]}
 end

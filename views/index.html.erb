@@ -32,7 +32,10 @@
 		</br>
 	
 <% groups.each do |key, value|%>
-	<center><%= key %></center>
+	<center>
+	<form method="get" action="/">
+		<input type="button" name="button" class="button" value="<%= key %>"></center>
+		</form>
 	<center><table></center>
 	<% value.each do |name,number|%>
 		<tr>
