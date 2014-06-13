@@ -7,22 +7,56 @@
 		<center>Start making your own groups!</center>
 		<form method="post" action="/">
 			<fieldset>
-				<ul>
+			<ul>
 				<label> 
-					<input type="text" name="setname" placeholder="Username" required>
-				</label></ul>
-				<ul>
-				<label>
-					<input type="text" name="vids" placeholder="Number (e.g. 123456789)" required>
+					<input type="text" name="groupname" value="Group Name" required>
 				</label></ul>
 				<ul>
 				<label> 
-					<input type="text" name="description" placeholder="Group Name" required>
+					<input type="text" name="membername" value="Member name" required>
 				</label></ul>
 				<ul>
 				<label>
-					<input type="submit" name="button" class="buttonß" value="Submit"></label></ul>
+					<input type="text" name="number" value="Number (e.g. 123456789)" required>
+				</label></ul>
+				
+				<ul>
+				<label>
+					<input type="submit" name="button" class="button" value="Submit"></label></ul>
 			</fieldset>
 		</form>
 	</div>
+
+	<div class = "groups">
+		<center>Your groups!</center>
+		</br>
+	
+<% groups.each do |key, value|%>
+	<center><%= key %></center>
+	<center><table></center>
+	<% value.each do |name,number|%>
+		<tr>
+			<td>
+				<%= name %>
+			</td>
+			<td>
+				<%= number %>
+			</td>
+		</tr>
+	<% end %>
+
+		
+
+	</table>
+
+	</br>
+		
+		<%end%>
+	
+	</div>
+
+
+
+		
+
 </body>

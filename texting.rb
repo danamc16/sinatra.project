@@ -8,9 +8,26 @@ end
 
 
 get '/' do
-	erb :'index.html', :locals => {:history => session[:history]}
+	session[:groups] ||= {}
+
+
+
+
+	erb :'index.html', :locals => {:groups => session[:groups]}
 end
 
 post '/' do
-	erb :'index.html'
+
+	member = params[:membername]
+	
+	number = params[:number]
+
+	groupname = params[:groupname]
+
+	session[:groups][groupname] ||= {}
+	session[:groups][groupname][member] = number
+
+
+
+	erb :'index.html', :locals => {:groups => session[:groups], :member => params[:membername], :number => params[:number], :groupname => params[:groupname]}
 end
