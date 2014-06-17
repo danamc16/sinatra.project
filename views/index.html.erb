@@ -31,10 +31,10 @@
 		<center>Your groups!</center>
 		</br>
 	
-<% groups.each do |key, value|%>
+<% groups.each do |groupname, value|%>
 	<center>
-	<form method="get" action="/">
-		<input type="button" name="button" class="button" value="<%= key %>"></center>
+	<form method="get" action="/<%= groupname %>">
+		<input type="submit" name="button" class="button" value="<%= groupname %>"></center>
 		</form>
 	<center><table></center>
 	<% value.each do |name,number|%>
