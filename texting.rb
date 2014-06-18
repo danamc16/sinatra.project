@@ -1,6 +1,6 @@
 require 'pry'
 require 'sinatra'
-require 'sinatra/reloader'
+
 
 configure do
 	enable :sessions
@@ -36,7 +36,7 @@ get '/:groupname' do
 	recipients = ""
 	time = DateTime.now()
 	message = ""
-	
+
 	display = false
 
 
