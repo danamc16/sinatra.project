@@ -8,9 +8,46 @@
 		<center><%= groupname %></center>
 	</h1>
 
-	<h2>
-		<%= groups[groupname] %>
-	</h2>
+	<% groups[groupname].each do |name,value| %>
+		<div>
+		<%= name %>
+		<%= value %>
+		</div>
+	<% end %>
+
+	<br>
+
+	<form name="input" method="post" action="/<%= groupname %>">
+		<label>Text yo Friends!</label>
+		<br>
+		Recipients: <select multiple name="recipients">
+		<% all_names = groups[groupname].keys %>
+		<% all_names.each do |name| %>
+			<option value="<%= name %>"><%= name %></option>
+		<% end %>
+		</select>
+		<br>
+		Time of Arrival (EST): <input type="time" name="time">
+		<br>
+		Message: <input type="text" name="message" placeholder="Write your message here!">
+		<br>
+		
+		<input type="submit" name="button" value="Send!">
+	 		
+	</form>
+
+	<br>
+
+	<div id="sample">
+	Displayed below is your sample text message.
+	<br>
+	Recipients: <%= recipients %>
+	<br>
+	Time of Arrival: <%= time %>
+	<br>
+	Message: <%= message %>
+	</div>
+
 
 
 
