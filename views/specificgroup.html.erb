@@ -8,25 +8,18 @@
 		<center><%= groupname %></center>
 	</h1>
 
-	<% groups[groupname].each do |name,value| %>
-		<div>
-		<%= name %>
-		<%= value %>
-		</div>
-	<% end %>
-
 	<br>
 
 	<form name="input" method="post" action="/<%= groupname %>">
 		<label>Text yo Friends!</label>
 		<br>
-		Recipients: <select multiple name="recipients">
-		<% all_names = groups[groupname].keys %>
-		<% all_names.each do |name| %>
-			<option value="<%= name %>"><%= name %></option>
+		Recipients: <br>
+
+		<% groups[groupname].keys.each do |name| %>
+		<INPUT TYPE=CHECKBOX NAME="checkbox" value='<%= name %>' checked><%= name %><BR>
+
 		<% end %>
-		</select>
-		<br>
+		
 		Time of Arrival (EST): <input type="time" name="time">
 		<br>
 		Message: <input type="text" name="message" placeholder="Write your message here!">
@@ -38,14 +31,19 @@
 
 	<br>
 <% if display %>
-	<div id="sample">
-	Displayed below is your sample text message.
+	<div id="history">
+	Previous Text Messages for this Group: <br>
+	<% texts[groupname].each do |value|%>
 	<br>
-	Recipients: <%= recipients %>
-	<br>
-	Time of Arrival: <%= time %>
-	<br>
-	Message: <%= message %>
+		<div id="message">
+		Recipients: <%= value[0] %>
+		<br>
+		Time of Arrival: <%= value[1] %>
+		<br>
+		Message: <%= value[2] %>
+		</div>
+
+	<% end %>
 	</div>
 
 <% end %>

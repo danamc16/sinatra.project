@@ -1,6 +1,6 @@
 require 'pry'
 require 'sinatra'
-
+require 'sinatra/reloader'
 
 configure do
 	enable :sessions
@@ -44,19 +44,23 @@ get '/:groupname' do
 end
 
 post '/:groupname' do
+	checkbox = params[:checkbox]
+	
 
 
-
+	groupname = params[:groupname]
 	recipients = params[:recipients]
 	message = params[:message]
+	time ||= Time.now
+	binding.pry
 	time = params[:time]
 	session[:texts] ||= {}
-	session[:texts][recipients] ||= {}
-	session[:texts][recipients] = [time,message]
+	session[:texts][groupname] ||= []
+	session[:texts][groupname].push([checkbox,time,message])
 
 	display = true
 
 
-	erb :'specificgroup.html', :locals => {:groups => session[:groups],:member => params[:membername], :number => params[:number],:groupname => params[:groupname],:recipients => recipients,:message => message,:time => time,:texts => session[:texts],:display => display}
+	erb :'specificgroup.html', :locals => {:groups => session[:groups],:member => params[:membername], :number => params[:number],:groupname => params[:groupname],:recipients => recipients,:message => message,:time => time,:texts => session[:texts],:display => display, :checkbox => checkbox}
 
 end
