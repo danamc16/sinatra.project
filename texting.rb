@@ -1,6 +1,7 @@
 require 'pry'
 require 'sinatra'
-
+require 'sinatra/reloader'
+require 'Time'
 
 configure do
 	enable :sessions
@@ -11,7 +12,8 @@ get '/' do
 	session[:groups] ||= {}
 	session[:texts] ||= {}
 	
-	erb :'index.html', :locals => {:texts => session[:texts],:groups => session[:groups]}
+	erb :'index.html', :locals => {:texts => session[:texts],
+								   :groups => session[:groups]}
 end
 
 post '/' do
@@ -27,40 +29,77 @@ post '/' do
 
 
 
-	erb :'index.html', :locals => {:texts => session[:texts],:groups => session[:groups], :member => params[:membername], :number => params[:number], :groupname => params[:groupname]}
+	erb :'index.html', :locals => {:texts => session[:texts],
+								   :groups => session[:groups], 
+								   :member => params[:membername], 
+								   :number => params[:number], 
+								   :groupname => params[:groupname]}
 end
 
 get '/:groupname' do	
 
-	# return session[params[groupname]]
+	session[:texts] ||= {}
+
+	groupname = params[:groupname]
+	session[:texts][groupname] ||= []
+
 	recipients = ""
-	time = DateTime.now()
+	time = Time.now.strftime("%H:%M")
 	message = ""
 
-	display = false
+	
 
 
-	erb :'specificgroup.html', :locals => {:groups => session[:groups],  :groupname => params[:groupname], :button => params[:button],:texts => session[:texts], :recipients => recipients,:message => message,:time => time,:display => display}
+	erb :'specificgroup.html', :locals => {:groups => session[:groups],  
+										   :texts => session[:texts], 
+										   :groupname => params[:groupname], 
+										   :button => params[:button],
+										   :texts => session[:texts], 
+										   :recipients => recipients,
+										   :message => message,
+										   :time => time}
 end
 
 post '/:groupname' do
 
-	checkbox = params[:checkbox]
-	
 	groupname = params[:groupname]
-	recipients = params[:recipients]
-	binding.pry
+
+	recipients = []
+	
+	session[:groups][groupname].keys.each do |name|
+		if params[name] == "on"
+			recipients.push(name)
+		end
+
+	end
+	
 	message = params[:message]
-	time ||= Time.now
-	binding.pry
 	time = params[:time]
 	session[:texts] ||= {}
 	session[:texts][groupname] ||= []
-	session[:texts][groupname].push([checkbox,time,message])
-
-	display = true
+	session[:texts][groupname].push([recipients,time,message])
 
 
-	erb :'specificgroup.html', :locals => {:groups => session[:groups],:member => params[:membername], :number => params[:number],:groupname => params[:groupname],:recipients => recipients,:message => message,:time => time,:texts => session[:texts],:display => display, :checkbox => checkbox}
+	erb :'specificgroup.html', :locals => {:groups => session[:groups],
+										   :member => params[:membername], 
+										   :number => params[:number],
+										   :groupname => params[:groupname],
+										   :recipients => recipients,
+										   :message => message,
+										   :time => time,
+										   :texts => session[:texts],
+										   :display => display}
+
+end
+
+get '/:groupname/edit' do
+
+
+	erb :'edit.html', :locals => {  :groups => session[:groups],
+									:member => params[:membername], 
+									:number => params[:number],
+									:groupname => params[:groupname],
+									:texts => session[:texts],
+									:display => display}
 
 end
