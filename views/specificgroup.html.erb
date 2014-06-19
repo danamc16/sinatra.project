@@ -10,17 +10,25 @@
 
 	<br>
 
+	<form name="input" method="get" action="/">
+		<input type="submit" name="button" value="Return to Groups">
+	</form> 
+
+	<form name="input" method="get" action="/<%= groupname %>/edit">
+		<input type="submit" name="button" value="Edit Groups">
+	</form> 
+
+
 	<form name="input" method="post" action="/<%= groupname %>">
 		<label>Text yo Friends!</label>
 		<br>
 		Recipients: <br>
 
-		<% groups[groupname].keys.each do |name| %>
-		<INPUT TYPE=CHECKBOX NAME="checkbox" value='<%= name %>' checked><%= name %><BR>
+		<% groups[groupname].keys.each_with_index do |name,i| %>
+		<input type="checkbox" name="<%= name %>" checked><%= name %><BR>
 
 		<% end %>
-		
-		Time of Arrival (EST): <input type="time" name="time">
+		Time of Arrival (EST): <input type="time" name="time" value="<%= Time.now.strftime("%H:%M") %>">
 		<br>
 		Message: <input type="text" name="message" placeholder="Write your message here!">
 		<br>
@@ -30,7 +38,7 @@
 	</form>
 
 	<br>
-<% if display %>
+
 	<div id="history">
 	Previous Text Messages for this Group: <br>
 	<% texts[groupname].each do |value|%>
@@ -45,8 +53,6 @@
 
 	<% end %>
 	</div>
-
-<% end %>
 
 
 
