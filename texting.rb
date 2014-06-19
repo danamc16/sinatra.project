@@ -37,17 +37,19 @@ get '/:groupname' do
 end
 
 post '/:groupname' do
-
+	groupname = params[:groupname]
 	recipients = params[:recipients]
+	binding.pry
 	message = params[:message]
 	time = params[:time]
 
-	session[:text][recipients] ||= {}
-	session[:text][recipients] = [time,message]
+	session[:text][groupname] ||= {}
+	session[:text][groupname] ||= {}
+	session[:text][groupname] = [recipients,time,message]
 
 
 
 
-	erb :'specificgroup.html', :locals => {:groups => session[:groups],:member => params[:membername], :number => params[:number],:groupname => params[:groupname],:recipients => recipients,:message => message,:time => time,:text => session[:text]}
+	erb :'specificgroup.html', :locals => {:groups => session[:groups],:member => params[:membername], :number => params[:number],:groupname => params[:groupname],:recipients => recipients,:message => message,:time => time,:text => session[:text],:multiple => true,:prompt =>'select names'}
 
 end

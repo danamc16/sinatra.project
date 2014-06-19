@@ -20,11 +20,12 @@
 	<form name="input" method="post" action="/<%= groupname %>">
 		<label>Text yo Friends!</label>
 		<br>
-		Recipients: <select multiple name="recipients">
-		<% all_names = groups[groupname].keys %>
-		<% all_names.each do |name| %>
-			<option value="<%= name %>"><%= name %></option>
-		<% end %>
+		Recipients: 
+		<select multiple name="recipients">
+			<% all_names = groups[groupname].keys %>
+			<% all_names.each do |name| %>
+				<option value="<%= name %>"><%= name %></option>
+			<% end %>
 		</select>
 		<br>
 		Time of Arrival (EST): <input type="time" name="time">
