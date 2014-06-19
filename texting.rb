@@ -2,6 +2,7 @@ require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'Time'
+require 'httparty'
 
 configure do
 	enable :sessions
@@ -64,6 +65,7 @@ post '/:groupname' do
 
 	groupname = params[:groupname]
 
+
 	recipients = []
 	
 	session[:groups][groupname].keys.each do |name|
@@ -78,6 +80,20 @@ post '/:groupname' do
 	session[:texts] ||= {}
 	session[:texts][groupname] ||= []
 	session[:texts][groupname].push([recipients,time,message])
+
+	url = "https://sendgrid.com/api/mail.send.json"
+
+	response = HTTParty.post url, :body => {
+	  "api_user" => "jdmcpeek",
+	  "api_key" => "sendgridpro",
+	  "to" => session[:groups][groupname].values,
+	  "from" => "josedmcpeek@gmail.com",
+	  "subject" => "This is a test",
+	  "text" => message
+	}
+
+	response.body
+
 
 
 	erb :'specificgroup.html', :locals => {:groups => session[:groups],
