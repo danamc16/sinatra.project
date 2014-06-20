@@ -20,7 +20,7 @@
 
 
 	<form name="input" method="post" action="/<%= groupname %>">
-		<label>Text yo Friends!</label>
+		<label>Email yo Friends!</label>
 		<br>
 		Recipients: <br>
 
@@ -29,6 +29,8 @@
 
 		<% end %>
 		Time of Arrival (EST): <input type="time" name="time" value="<%= Time.now.strftime("%H:%M") %>">
+		<br>
+		Subject: <input type="text" name="subject" placeholder="Write your subject here!">
 		<br>
 		Message: <input type="text" name="message" placeholder="Write your message here!">
 		<br>
@@ -40,15 +42,17 @@
 	<br>
 
 	<div id="history">
-	Previous Text Messages for this Group: <br>
-	<% texts[groupname].each do |value|%>
+	Previous Emails for this Group: <br>
+	<% emails[groupname].each do |value|%>
 	<br>
 		<div id="message">
 		Recipients: <%= value[0] %>
 		<br>
 		Time of Arrival: <%= value[1] %>
 		<br>
-		Message: <%= value[2] %>
+		Subject: <%= value[2] %>
+		<br>
+		Message: <%= value[3] %>
 		</div>
 
 	<% end %>

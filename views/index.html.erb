@@ -4,7 +4,7 @@
 </head>
 <body>
 	<div class="addnew">
-		<center>Start making your own groups! SendGrid</center>
+		<center>Start making your own groups!</center>
 		<form method="post" action="/">
 			<fieldset>
 			<ul>
@@ -17,7 +17,7 @@
 				</label></ul>
 				<ul>
 				<label>
-					<input type="text" name="number" placeholder="Number (e.g. 123456789)" required>
+					<input type="text" name="email" placeholder="Email Address" required>
 				</label></ul>
 				
 				<ul>
@@ -37,13 +37,13 @@
 		<input type="submit" name="button" class="button" value="<%= groupname %>"></center>
 		</form>
 	<center><table></center>
-	<% value.each do |name,number|%>
+	<% value.each do |name,email|%>
 		<tr>
 			<td>
 				<%= name %>
 			</td>
 			<td>
-				<%= number %>
+				<%= email %>
 			</td>
 		</tr>
 	<% end %>
