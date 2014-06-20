@@ -26,9 +26,10 @@
 
 		<% groups[groupname].keys.each_with_index do |name,i| %>
 		<input type="checkbox" name="<%= name %>" checked><%= name %><BR>
-
 		<% end %>
 		Time of Arrival (EST): <input type="time" name="time" value="<%= Time.now.strftime("%H:%M") %>">
+		<br>
+		Date of Arrival: <input type="date" name="date" value="<%= Time.now.strftime("%Y-%m-%d") %>">
 		<br>
 		Subject: <input type="text" name="subject" placeholder="Write your subject here!">
 		<br>
@@ -50,9 +51,11 @@
 		<br>
 		Time of Arrival: <%= value[1] %>
 		<br>
-		Subject: <%= value[2] %>
+		Date of Arrival: <%= value[2] %>
 		<br>
-		Message: <%= value[3] %>
+		Subject: <%= value[3] %>
+		<br>
+		Message: <%= value[4] %>
 		</div>
 
 	<% end %>
