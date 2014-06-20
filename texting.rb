@@ -86,25 +86,37 @@ post '/:groupname' do
 	session[:emails][groupname] ||= []
 	session[:emails][groupname].push([recipients,time,subject,message])
 
-	url = "https://sendgrid.com/api/mail.send.json"
+
+	scheduler = Rufus::Scheduler.new
+
+	delivery_time = '2014/06/20 ' + time.to_s + ':00' 
 
 
-scheduler = Rufus::Scheduler.new
 
-scheduler.at '2014/06/20 14:36:00' do
-  
-	response = HTTParty.post url, :body => {
-	  "api_user" => "jdmcpeek",
-	  "api_key" => "sendgridpro",
-	  "to" => session[:groups][groupname].values,
-	  "from" => "josedmcpeek@gmail.com",
-	  "subject" => "This is a test",
-	  "text" => message
-	}
+	scheduler.at delivery_time do
 
-	response.body
+		scheduler.every '30s', :times => 2 do
 
-end
+
+		url = "https://sendgrid.com/api/mail.send.json"
+	  
+		response = HTTParty.post url, :body => {
+		  "api_user" => "jdmcpeek",
+		  "api_key" => "sendgridpro",
+		  "to" => session[:groups][groupname].values,
+		  "from" => "josedmcpeek@gmail.com",
+		  "subject" => subject,
+		  "text" => message
+		}
+
+		response.body
+
+		end	
+	end
+
+
+
+
 
 
 
