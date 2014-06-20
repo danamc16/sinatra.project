@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'Time'
 require 'httparty'
+require 'rufus-scheduler'
 
 configure do
 	enable :sessions
@@ -87,6 +88,11 @@ post '/:groupname' do
 
 	url = "https://sendgrid.com/api/mail.send.json"
 
+
+scheduler = Rufus::Scheduler.new
+
+scheduler.at '2014/06/20 14:36:00' do
+  
 	response = HTTParty.post url, :body => {
 	  "api_user" => "jdmcpeek",
 	  "api_key" => "sendgridpro",
@@ -97,6 +103,8 @@ post '/:groupname' do
 	}
 
 	response.body
+
+end
 
 
 
