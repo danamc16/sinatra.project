@@ -82,7 +82,7 @@ post '/:groupname' do
 	subject = params[:subject]
 	message = params[:message]
 	time = params[:time]
-	date = params[:date]
+	date = params[:date].split("-").join("/")
 	session[:emails] ||= {}
 	session[:emails][groupname] ||= []
 	session[:emails][groupname].push([recipients,time,date,subject,message])
@@ -91,13 +91,13 @@ post '/:groupname' do
 
 	scheduler = Rufus::Scheduler.new
 
-	delivery_time = '2014/06/20 ' + time.to_s + ':00' 
+	delivery_time = date.to_s + ' ' + time.to_s + ':00' 
 
 
 
 	scheduler.at delivery_time do
 
-		scheduler.every '30s', :times => 2 do
+		scheduler.every '30s', :times => 1 do
 
 
 		url = "https://sendgrid.com/api/mail.send.json"
