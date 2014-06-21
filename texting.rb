@@ -87,7 +87,7 @@ post '/:groupname' do
 	session[:emails][groupname] ||= []
 	session[:emails][groupname].push([recipients,time,date,subject,message])
 
-
+	binding.pry
 
 	scheduler = Rufus::Scheduler.new
 
