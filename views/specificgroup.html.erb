@@ -19,7 +19,7 @@
 	</form> 
 
 
-	<form name="input" method="post" action="/<%= groupname %>">
+	<form name="input" method="post" action="/<%= groupname %>" id = "usrform">
 		<label>Email yo Friends!</label>
 		<br>
 		Recipients: <br>
@@ -33,9 +33,8 @@
 		<br>
 		Subject: <input type="text" name="subject" placeholder="Write your subject here!">
 		<br>
-		Message: <input type="text" name="message" placeholder="Write your message here!">
+		Message: <textarea name = "message" form = "usrform" placeholder="Write your message here!" rows=6 cols=60 ></textarea>
 		<br>
-		
 		<input type="submit" name="button" value="Send!">
 	 		
 	</form>
