@@ -1,12 +1,28 @@
-body, html {
-	height: 100%;
+* {
+	text-align: center;
+	vertical-align: center;
+	margin: auto;
 
 }
 
 
-#addnew {
+
+body, html {
+	height: 100%;
+	width: 100%
+	position: fixed;
+
+
+}
+
+
+
+
+.pure-u-1-2 {
+	position: relative;
+	height: 100%
 	vertical-align: center;
-	min-height: 100%;
+
 }
 
 
@@ -20,11 +36,11 @@ body, html {
 }
 
 #create_group {
+	height: 100%;
 	text-align: center;
-	top:auto;
-	margin: 3 em auto;
 	vertical-align: center;
-
+	
+	
  
 
 
@@ -32,5 +48,6 @@ body, html {
 
 .pure-g {
 	height: 100%;
+	
 
 }
