@@ -1,9 +1,10 @@
 require 'rufus-scheduler'
 require 'HTTParty'
+require 'Time'
 
 scheduler = Rufus::Scheduler.new
 
-scheduler.at '2014/06/20 14:42:00' do
+scheduler.at '2014/06/20 14:51:30' do
 
 	url = "https://sendgrid.com/api/mail.send.json"
   

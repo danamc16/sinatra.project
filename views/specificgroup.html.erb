@@ -19,8 +19,14 @@
 	</form> 
 
 
-	<form name="input" method="post" action="/<%= groupname %>">
+	<form name="input" method="post" action="/<%= groupname %>" id = "usrform">
 		<label>Email yo Friends!</label>
+			<ul>
+				<label> 
+					<input type="text" name="user_email" placeholder="Your Email" required>
+				</label>
+			</ul>
+
 		<br>
 		Recipients: <br>
 
@@ -29,13 +35,15 @@
 		<% end %>
 		Time of Arrival (EST): <input type="time" name="time" value="<%= Time.now.strftime("%H:%M") %>">
 		<br>
-		Date of Arrival: <input type="date" name="date" value="<%= Time.now.strftime("%Y-%m-%d") %>">
+		Date of Arrival: <input type="date" name="date" value="<%= Time.now.strftime("%Y-%m-%d") %>"> 
+		
+		How often? <input type="text" name="frequency" cols = 40 placeholder = "10(s,m,h, or d)">
+		How many times? <input type="number" name="count" placeholder="Don't be pesky!">
 		<br>
 		Subject: <input type="text" name="subject" placeholder="Write your subject here!">
 		<br>
-		Message: <input type="text" name="message" placeholder="Write your message here!">
+		Message: <textarea name = "message" form = "usrform" placeholder="Write your message here!" rows=6 cols=60 ></textarea>
 		<br>
-		
 		<input type="submit" name="button" value="Send!">
 	 		
 	</form>

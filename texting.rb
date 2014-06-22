@@ -13,6 +13,8 @@ end
 get '/' do
 	session[:groups] ||= {}
 	session[:emails] ||= {}
+	session[:user_email] ||= "josedmcpeek@gmail.com"
+
 	
 	erb :'index.html', :locals => {:emails => session[:emails],
 								   :groups => session[:groups]}
@@ -26,6 +28,10 @@ post '/' do
 
 	groupname = params[:groupname]
 
+	
+
+	
+
 	session[:groups][groupname] ||= {}
 	session[:groups][groupname][member] = email
 
@@ -35,7 +41,7 @@ post '/' do
 								   :groups => session[:groups], 
 								   :member => params[:membername], 
 								   :email => params[:email], 
-								   :groupname => params[:groupname]}
+								   :groupname => params[:groupname],}
 end
 
 get '/:groupname' do	
@@ -77,27 +83,50 @@ post '/:groupname' do
 		end
 
 	end
+
+
+	user_email = params[:user_email]
+
+	session[:user_email] = user_email
 	
 	subject = params[:subject]
 	message = params[:message]
 	time = params[:time]
-	date = params[:date]
+	date = params[:date].split("-").join("/")
+	frequency = params[:frequency]
+	count = params[:count].to_i
 	session[:emails] ||= {}
 	session[:emails][groupname] ||= []
 	session[:emails][groupname].push([recipients,time,date,subject,message])
 
-	#url = "https://sendgrid.com/api/mail.send.json"
-  
-	#response = HTTParty.post url, :body => {
-	#  "api_user" => "jdmcpeek",
-	#  "api_key" => "sendgridpro",
-	#  "to" => session[:groups][groupname].values,
-	#  "from" => "josedmcpeek@gmail.com",
-	 # "subject" => "This is a test",
-	#  "text" => message
-	#}
 
-	#response.body
+	scheduler = Rufus::Scheduler.new
+
+	delivery_time = date.to_s + ' ' + time.to_s + ':00' 
+
+	compare = session[:groups][groupname].keys & recipients
+	
+	scheduler.at delivery_time do
+
+		scheduler.every frequency, :times => count do
+
+
+		url = "https://sendgrid.com/api/mail.send.json"
+	  
+		response = HTTParty.post url, :body => {
+		  "api_user" => "jdmcpeek",
+		  "api_key" => "sendgridpro",
+		  "to" => session[:groups][groupname].select{|k,v| compare.include? k }.values,
+		  "from" => session[:user_email],
+		  "subject" => subject,
+		  "text" => message
+		}
+
+		response.body
+
+		end	
+	end
+
 
 
 	erb :'specificgroup.html', :locals => {:groups => session[:groups],
@@ -110,7 +139,10 @@ post '/:groupname' do
 										   :time => time,
 										   :date => date,
 										   :emails => session[:emails],
-										   :display => display}
+										   :display => display,
+										   :user_email => :user_email,
+										   :frequency => frequency,
+										   :count => count}
 
 end
 
