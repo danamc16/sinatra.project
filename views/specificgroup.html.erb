@@ -36,7 +36,9 @@
 		Time of Arrival (EST): <input type="time" name="time" value="<%= Time.now.strftime("%H:%M") %>">
 		<br>
 		Date of Arrival: <input type="date" name="date" value="<%= Time.now.strftime("%Y-%m-%d") %>"> 
-		How often? <input type="date" name="frequency" value="<%= Time.now.strftime("%Y-%m-%d") %>"> 
+		
+		How often? <input type="text" name="frequency" cols = 40 placeholder = "10(s,m,h, or d)">
+		How many times? <input type="number" name="count" placeholder="Don't be pesky!">
 		<br>
 		Subject: <input type="text" name="subject" placeholder="Write your subject here!">
 		<br>
