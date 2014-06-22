@@ -1,12 +1,18 @@
+<!DOCTYPE html>
+
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
 </head>
 <body>
-	<div class="addnew">
+<div class = "pure-g">
+	<div id="addnew" class = "pure-u-1-2">
 		<center>Start making your own groups!</center>
-		<form method="post" action="/">
-			<fieldset>
+		<form method="post" action="/" id="create_group">
+		
 				<ul>
 				<label> 
 					<input type="text" name="groupname" placeholder="Group Name" required>
@@ -23,11 +29,11 @@
 				<label>
 					<input type="submit" name="button" class="button" value="Submit"></label></ul>
 				
-			</fieldset>
+		
 		</form>
 	</div>
 
-	<div class = "groups">
+	<div id = "groups" class = "pure-u-1-2">
 		<center>Your groups!</center>
 		</br>
 	
@@ -58,10 +64,12 @@
 	
 	</div>
 
-	
+</div>
 
 
 
 		
 
 </body>
+
+</html>
