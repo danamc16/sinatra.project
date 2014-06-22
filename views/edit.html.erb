@@ -27,10 +27,10 @@
 		<br>
 			Members:
 			<br>
-			<% groups[groupname].each do |name,number| %>
-			
+			<% groups[groupname].each do |name,email| %>
+
 			<input type="text" name="<%= name %>" class= "<%= name %>" value="<%= name %>">
-			<input type="text" name="<%= number %>" class="<%= number %>" value="<%= number %>">
+			<input type="text" name="<%= email %>" class="<%= email %>" value="<%= email %>">
 			<br>
 		
 			<% end %>

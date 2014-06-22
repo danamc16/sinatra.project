@@ -164,33 +164,19 @@ put '/:groupname/edit' do
 	groupname_new = params[:groupname_new]
 	session[:groups][groupname_new] = session[:groups].delete(groupname)
 
-	oldhash = Hash.new session[:groups][groupname_new]
-
-	oldhash.each do |oldname,number|
-		newname = params[oldname]
-		session[:groups][groupname_new][newname] = params[number]
-		session[:groups][groupname_new].delete(oldname)
+	session[:groups][groupname_new].keys.each do |oldname|
+		newname = params[oldname.to_sym]
+		session[:groups][groupname_new][newname] = session[:groups][groupname_new].delete(oldname)
 	end
 
-	session[:groups][groupname_new] = oldhash
+	
+
+	
 
 	
 
 	redirect to('/' + groupname_new)
 
-
-
-
-
-
-	#groupname_new = params[:groupname_new]
-	#session[:groups][title_new] = session[:groups].delete(title)
-
-	#description = params[:description]
-	#vidlist = params[:vidlist].split(', ')
-	#history[title_new].replace(vidlist.push(description))
-	#redirect to('/sets/' + title_new)
-	
 	erb :'edit.html', :locals => {:groups => session[:groups],
 								  :member => params[:membername], 
 								  :email => params[:email],
