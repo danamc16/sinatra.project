@@ -6,50 +6,38 @@
 
 body, html {
 	height: 100%;
-
+	width: 100%
+	position: fixed;
 }
 
 table {
-	padding: auto;
-	margin:10px;
 }
 
 .button {
 	margin:10px;
 }
 
-
 #addnew {
-	text-align: center;
-	padding-top: 20%;
-
 }
 
 
-
-
-
-#groups {
-	text-align:center;
-	padding-top: 5%;
-
-
-
-
-}
-
-#create_group {
-	text-align: center;
-	top:auto;
-	margin: 3 em auto;
+.pure-u-1-2 {
+	position: relative;
+	height: 100%
 	vertical-align: center;
+}
 
- 
 
+
+#grouplist {
+	overflow-y:scroll;
+	height:680px;	
 
 }
+
 
 .pure-g {
 	height: 100%;
+	
 
 }

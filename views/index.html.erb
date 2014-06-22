@@ -37,7 +37,7 @@
 	<div id = "groups" class = "pure-u-1-2">
 		Your groups!
 		<br>
-	
+		<div id="grouplist">
 		<% groups.each do |groupname, value|%>
 			<div id="<%= groupname %>">
 				<form method="get" action="/<%= groupname %>">
@@ -60,6 +60,7 @@
 				</table></center>
 			</div>
 		<% end %>
+		</div>
 	</div>
 
 </div>
