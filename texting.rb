@@ -167,13 +167,8 @@ put '/:groupname/edit' do
 	session[:groups][groupname_new].keys.each do |oldname|
 		newname = params[oldname.to_sym]
 		session[:groups][groupname_new][newname] = session[:groups][groupname_new].delete(oldname)
+		session[:groups][groupname_new][newname].replace(params[session[:groups][groupname_new][newname].to_sym])
 	end
-
-	
-
-	
-
-	
 
 	redirect to('/' + groupname_new)
 
