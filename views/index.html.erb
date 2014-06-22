@@ -10,7 +10,7 @@
 <body>
 <div class = "pure-g">
 	<div id="addnew" class = "pure-u-1-2">
-		<center>Start making your own groups!</center>
+		<center>Start making your own groups!
 		<form method="post" action="/" id="create_group">
 		
 				<ul>
@@ -31,37 +31,35 @@
 				
 		
 		</form>
+		</center>
 	</div>
 
 	<div id = "groups" class = "pure-u-1-2">
-		<center>Your groups!</center>
-		</br>
+		Your groups!
+		<br>
 	
-<% groups.each do |groupname, value|%>
-	<center>
-	<form method="get" action="/<%= groupname %>">
-		<input type="submit" name="button" class="button" value="<%= groupname %>"></center>
-		</form>
-	<center><table></center>
-	<% value.each do |name,email|%>
-		<tr>
-			<td>
-				<%= name %>
-			</td>
-			<td>
-				<%= email %>
-			</td>
-		</tr>
-	<% end %>
-
-		
-
-	</table>
-
-	</br>
-		
-		<%end%>
-	
+		<% groups.each do |groupname, value|%>
+			<div id="<%= groupname %>">
+				<form method="get" action="/<%= groupname %>">
+					<input type="submit" name="button" class="button" value="<%= groupname %>">
+				<center><table class="pure-table pure-table-horizontal">
+				   <thead>
+			        <tr>
+			            <th>Name</th>
+			            <th>E-mail Address</th>
+			        </tr>
+				    </thead>
+				    <tbody>
+					<% value.each do |name,email|%>
+						<tr>
+							<td><%= name %></td>
+							<td><%= email %></td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table></center>
+			</div>
+		<% end %>
 	</div>
 
 </div>
