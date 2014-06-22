@@ -1,0 +1,36 @@
+body, html {
+	height: 100%;
+
+}
+
+
+#addnew {
+	vertical-align: center;
+	min-height: 100%;
+}
+
+
+
+
+
+#groups {
+
+
+
+}
+
+#create_group {
+	text-align: center;
+	top:auto;
+	margin: 3 em auto;
+	vertical-align: center;
+
+ 
+
+
+}
+
+.pure-g {
+	height: 100%;
+
+}
