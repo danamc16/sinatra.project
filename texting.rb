@@ -69,7 +69,6 @@ post '/:groupname' do
 
 	groupname = params[:groupname]
 
-
 	recipients = []
 	
 	session[:groups][groupname].keys.each do |name|
@@ -131,7 +130,23 @@ put '/:groupname/edit' do
 
 	groupname = params[:groupname]
 	groupname_new = params[:groupname_new]
-	session[:groups][title_new] = session[:groups].delete(title)
+	session[:groups][groupname_new] = session[:groups].delete(groupname)
+
+	oldhash = Hash.new session[:groups][groupname_new]
+
+	oldhash.each do |oldname,number|
+		newname = params[oldname]
+		session[:groups][groupname_new][newname] = params[number]
+		session[:groups][groupname_new].delete(oldname)
+	end
+
+	session[:groups][groupname_new] = oldhash
+
+	
+
+	redirect to('/' + groupname_new)
+
+
 
 
 
@@ -145,9 +160,10 @@ put '/:groupname/edit' do
 	#redirect to('/sets/' + title_new)
 	
 	erb :'edit.html', :locals => {:groups => session[:groups],
-										   :member => params[:membername], 
-										   :email => params[:email],
-										   :groupname => params[:groupname]}
+								  :member => params[:membername], 
+								  :email => params[:email],
+								  :groupname => params[:groupname],
+								  :groupname_new => groupname_new}
 
 end
 
@@ -155,5 +171,5 @@ delete '/:groupname/edit' do
 	groupname = params[:groupname]
 	session[:groups].delete(groupname)
 	redirect to('/')
-	erb :setname, :locals => {:groupname => groupname}
+	erb :'edit.html', :locals => {:groupname => groupname}
 end

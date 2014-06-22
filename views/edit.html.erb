@@ -18,7 +18,7 @@
 		<label>Edit <%= groupname %></label>
 		<br>
 		<label>
-			Groupname:<input type="text" name="groupname_new"value="<%= groupname %>">
+			Groupname:<input type="text" name="groupname_new" value="<%= groupname %>">
 		</label>
 		<br>
 		<label>
@@ -28,14 +28,20 @@
 			Members:
 			<br>
 			<% groups[groupname].each do |name,number| %>
-			<input type="text" name="<%= name %>_new" value="<%= name %>">
-			<input type="text" name="<%= number %>_new" value="<%= number %>">
+			
+			<input type="text" name="<%= name %>" class= "<%= name %>" value="<%= name %>">
+			<input type="text" name="<%= number %>" class="<%= number %>" value="<%= number %>">
 			<br>
+		
 			<% end %>
 		</label>
 		<br>
 		<input type="hidden" name="_method" value="put">	
 			<input type="submit" name="button" value="Edit Group">
+
+	</form>
+
+	<form name="input" method="post" action="/<%= groupname %>/edit">
 
 		<input type="hidden" name="_method" value="delete">	
 			<input type="submit" name="button" value="Delete Group">
