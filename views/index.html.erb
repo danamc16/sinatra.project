@@ -6,6 +6,10 @@
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 </head>
 <body>
 <div class = "pure-g">
@@ -14,7 +18,7 @@
 	</div>
 	<div id="addnew" class = "pure-u-1-2">
 		
-		<form method="post" action="/" id="create_group">
+		<form method="post" action="/" id="create_group" class = "elegant-aero">
 		<center>Start making your own groups!</center>
 				<ul>
 				<label> 
@@ -43,7 +47,7 @@
 		<div id="grouplist">
 		<% groups.each do |groupname, value|%>
 			<div id="<%= groupname %>">
-				<form method="get" action="/<%= groupname %>">
+				<form class = "pure-form" method="get" action="/<%= groupname %>">
 					<input type="submit" name="button" class="button" value="<%= groupname %>">
 				<center><table class="pure-table pure-table-horizontal">
 				   <thead>
