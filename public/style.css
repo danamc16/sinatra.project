@@ -6,10 +6,10 @@
 
 body, html {
 	height: 100%;
-	width: 100%
+	width: 100%;
 	position: fixed;
-	background: url("http://nevaza.com/wp-content/uploads/2013/05/28-cloud-wallpapers.jpg");
-}
+	/*background: url("http://nevaza.com/wp-content/uploads/2013/05/28-cloud-wallpapers.jpg");
+*/}
 
 #center {
 	font-family: Verdana;
@@ -17,6 +17,7 @@ body, html {
 }
 
 table {
+	width: 100%;
 }
 
 .button {
@@ -59,6 +60,7 @@ table {
 	
 
 }
+
 
 .pure-form {
 

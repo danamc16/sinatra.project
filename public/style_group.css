@@ -1,9 +1,36 @@
+
 html, body {
 	background-image: url("http://nevaza.com/wp-content/uploads/2013/05/28-cloud-wallpapers.jpg");
+	height: 100%;
+	width: 100%;
+	position: fixed;
 }
 
+
+* {
+	text-align: center;
+	vertical-align: center;
+	margin:auto;
+}
+
+
+
+#big_div {
+	height:100%;
+	padding:0px;
+}
 
 .pure-u-1-5 {
+	position: relative;
+	height: 100%;
 	overflow-y:scroll;
-	height:680px;	
 }
+
+
+
+#message {
+	height:680px;
+	overflow-y:scroll;
+}
+
+
