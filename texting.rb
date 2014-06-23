@@ -13,7 +13,7 @@ end
 get '/' do
 	session[:groups] ||= {}
 	session[:emails] ||= {}
-	session[:user_email] ||= "josedmcpeek@gmail.com"
+	session[:user_email] ||= "Sendgrid"
 
 	
 	erb :'index.html', :locals => {:emails => session[:emails],
@@ -117,7 +117,7 @@ post '/:groupname' do
 		  "api_user" => "jdmcpeek",
 		  "api_key" => "sendgridpro",
 		  "to" => session[:groups][groupname].select{|k,v| compare.include? k }.values,
-		  "from" => session[:user_email],
+		  "from" => "Sendgrid",
 		  "subject" => subject,
 		  "text" => message
 		}
