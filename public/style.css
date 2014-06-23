@@ -2,9 +2,28 @@
 	text-align: center;
 	vertical-align: center;
 	margin:auto;
-	font-family: 'Arimo', sans-serif; 
+ 
 }
 
+.pure-g {
+	font-family: 'Arimo', sans-serif;
+	height: 100%;
+	margin:1em;
+
+}
+
+}
+
+.pure-g > div {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+.pure-u-1-2 {
+
+}
+   
 body, html {
 	height: 100%;
 	width: 100%;
@@ -18,10 +37,11 @@ body, html {
 }
 
 table {
-	width: 100%;
+	width: 95%;
 }
 
 .button {
+	width:95%;
 	margin:10px;
 }
 
@@ -38,6 +58,7 @@ table {
 
 .pure-u-1-2 {
 	position: relative;
+	padding: 1em;
 	height: 100%
 	
 }
@@ -49,6 +70,10 @@ table {
 
 }
 
+#groups {
+	margin:10px;
+}
+
 #grouplist {
 	overflow-y:scroll;
 	height:680px;	
@@ -56,11 +81,6 @@ table {
 }
 
 
-.pure-g {
-	height: 100%;
-
-
-}
 
 
 .pure-form {

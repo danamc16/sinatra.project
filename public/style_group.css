@@ -5,6 +5,16 @@
 	font-family: 'Arimo', sans-serif;
 }
 
+.pure-g {
+	font-family: 'Arimo', sans-serif;
+}
+
+.pure-g > div {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
 html, body {
 	background: url("http://nevaza.com/wp-content/uploads/2013/05/28-cloud-wallpapers.jpg");
 	height: 100%;

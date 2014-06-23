@@ -5,6 +5,16 @@
 	font-family: 'Arimo', sans-serif;
 }
 
+.pure-g {
+	font-family: 'Arimo', sans-serif;
+}
+
+.pure-g > div {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
 html, body {
 	background: url("http://www.questionsonislam.com/sites/default/files/blue_clouds.jpg");
 	height: 100%;
