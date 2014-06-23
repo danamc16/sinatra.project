@@ -27,7 +27,8 @@ table {
 
 #navbar {
 	margin-right:0px;
-}
+	font-variant: Verdana;
+	font-size: larger;
 
 
 #addnew {
@@ -66,6 +67,13 @@ table {
 
 
 }
+
+
+/* This button was generated using CSSButtonGenerator.com */
+
+
+/* Elegant Aero */
+
 
 
 

@@ -5,10 +5,10 @@
 	font-family: 'Arimo', sans-serif;
 }
 
-body, html {
+html, body {
+	background: url("http://www.questionsonislam.com/sites/default/files/blue_clouds.jpg");
 	height: 100%;
 	width: 100%;
-	padding: 0;
-	margin: 0;
 	position: fixed;
-	background: url("http://nevaza.com/wp-content/uploads/2013/05/28-cloud-wallpapers.jpg");}
+}
+
