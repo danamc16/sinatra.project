@@ -1,52 +1,73 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style_edit.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
 </head>
 
+
 <body>
-	<h1>
+
+<div class = "pure-g" id="big_div">
+	<div id="navbar" class="pure-u-1">
+		MICROMANAGER
+	</div>
+	<div id="groupname" class="pure-u-1">
+		<h1>
 		<center><%= groupname %></center>
-	</h1>
+		</h1>
+	</div>
 
-	<br>
+	<div class="pure-u-1-5" id="buttons">
+		<form name="input" method="get" action="/">
+			<input type="submit" name="button" value="Return to Groups">
+		</form> 
 
-	<form name="input" method="get" action="/">
-		<input type="submit" name="button" value="Return to Groups">
-	</form> 
+		<form name="input" method="get" action="/<%= groupname %>">
+			<input type="submit" name="button" value="Return to <%= groupname %>">
+		</form>
+	</div>
 
-	<form name="input" method="post" action="/<%= groupname %>/edit">
-		<label>Edit <%= groupname %></label>
-		<br>
-		<label>
-			Groupname:<input type="text" name="groupname_new" value="<%= groupname %>">
-		</label>
-		<br>
-		<label>
-			Personal Information: [I'm blank 'cause we haven't implemented this yet!]</label>
-		<label>
-		<br>
-			Members:
+	<div class="pure-u-3-5" id="edit_info">
+		<form name="input" method="post" action="/<%= groupname %>/edit">
+			<label><h2>Edit <%= groupname %></h2></label>
 			<br>
-			<% groups[groupname].each do |name,email| %>
-
-			<input type="text" name="<%= name %>" class= "<%= name %>" value="<%= name %>">
-			<input type="text" name="<%= email %>" class="<%= email %>" value="<%= email %>">
+			<label>
+				Groupname:<input type="text" name="groupname_new" value="<%= groupname %>">
+			</label>
 			<br>
+				Members:
+				<br>
+			
+				<% groups[groupname].each do |name,email| %>
+					<div class="pure-g">
+						<div class="pure-u-1-2">
+						<input type="text" name="<%= name %>" class= "<%= name %>" value="<%= name %>">
+						</div>
+					
+						<div class="pure-u-1-2">
+						<input type="text" name="<%= email %>" class="<%= email %>" value="<%= email %>">
+						</div>
+					</div>		
 		
-			<% end %>
-		</label>
-		<br>
-		<input type="hidden" name="_method" value="put">	
-			<input type="submit" name="button" value="Edit Group">
+			
+				<% end %>
+			</label>
+			<br>
+			<input type="hidden" name="_method" value="put">	
+				<input type="submit" name="button" value="Edit <%= groupname %>">
 
-	</form>
-
-	<form name="input" method="post" action="/<%= groupname %>/edit">
+		</form>
+		<form name="input" method="post" action="/<%= groupname %>/edit">
 
 		<input type="hidden" name="_method" value="delete">	
-			<input type="submit" name="button" value="Delete Group">
-	 		
-	</form>
+				<input type="submit" name="button" value="Delete <%= groupname %>">
+		 		
+		</form>
+	</div>
+
+</div>
 
 </body>
 	

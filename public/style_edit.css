@@ -1,0 +1,6 @@
+html, body {
+	background: url("http://www.questionsonislam.com/sites/default/files/blue_clouds.jpg");
+	height: 100%;
+	width: 100%;
+	position: fixed;
+}
