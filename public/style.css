@@ -11,6 +11,11 @@ body, html {
 	background: url("http://nevaza.com/wp-content/uploads/2013/05/28-cloud-wallpapers.jpg");
 }
 
+#center {
+	font-family: Verdana;
+	font-size: larger;
+}
+
 table {
 }
 
