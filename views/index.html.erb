@@ -5,11 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 <div class = "pure-g">
@@ -19,7 +18,7 @@
 	<div id="addnew" class = "pure-u-1-2">
 		
 		<form method="post" action="/" id="create_group" class = "elegant-aero">
-		<center>Start making your own groups!</center>
+		<center id= "center">Start making your own groups!</center> <br>
 				<ul>
 				<label> 
 					<input type="text" name="groupname" placeholder="Group Name" required>
@@ -49,6 +48,7 @@
 			<div id="<%= groupname %>">
 				<form method="get" action="/<%= groupname %>">
 					<input type="submit" name="button" class="button" value="<%= groupname %>">
+				</form>
 				<center><table class="pure-table pure-table-horizontal">
 				   <thead>
 			        <tr>
@@ -66,6 +66,7 @@
 					</tbody>
 				</table></center>
 			</div>
+			<br>
 		<% end %>
 		</div>
 	</div>
