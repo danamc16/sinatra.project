@@ -1,18 +1,41 @@
-body {
-	position: fixed;
+* {
+	text-align: center;
+	vertical-align: center;
+	margin:auto;
+}
+
+body, html {
 	height: 100%;
 	width: 100%
+	position: fixed;
+}
+
+table {
+
+	
+}
+
+.button {
+	margin:10px;
+}
+
+#addnew {
+}
+
+
+.pure-u-1-2 {
+	position: relative;
+	height: 100%
+	vertical-align: center;
+}
+
+
+
+#grouplist {
+	overflow-y:scroll;
+	height:680px;	
 
 }
 
-#create_group {
 
-	position: absolute;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-	margin-bottom: auto;
-
-
-}
 
