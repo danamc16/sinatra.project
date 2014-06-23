@@ -1,41 +1,18 @@
-* {
-	text-align: center;
-	vertical-align: center;
-	margin:auto;
-}
-
-body, html {
+html, body, .pure-g {
 	height: 100%;
-	width: 100%
-	position: fixed;
+
 }
 
-table {
-
-	
-}
-
-.button {
-	margin:10px;
-}
-
-#addnew {
-}
-
-
-.pure-u-1-2 {
+#pure-u-1-2 {
 	position: relative;
-	height: 100%
-	vertical-align: center;
 }
 
 
+#create_group {
+	position: absolute;
+	top: 30%;
+	left: 20%;
 
-#grouplist {
-	overflow-y:scroll;
-	height:680px;	
+
 
 }
-
-
-
