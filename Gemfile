@@ -3,4 +3,5 @@ ruby "2.0.0"
 gem 'pry'
 gem 'sinatra'
 gem 'httparty'
+gem 'rufus-scheduler'
 
