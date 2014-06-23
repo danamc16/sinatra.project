@@ -8,8 +8,7 @@ body, html {
 	height: 100%;
 	width: 100%
 	position: fixed;
-	/*background: url("http://nevaza.com/wp-content/uploads/2013/05/28-cloud-wallpapers.jpg");
-*/}
+	background: url("http://nevaza.com/wp-content/uploads/2013/05/28-cloud-wallpapers.jpg");}
 
 table {
 	width: 100%;
@@ -20,8 +19,7 @@ table {
 }
 
 #navbar {
-	
-
+	margin-right:0px;
 }
 
 
