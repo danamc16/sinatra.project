@@ -4,6 +4,8 @@
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+	<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+
 	
 </head>
 
@@ -12,7 +14,7 @@
 
 <div class = "pure-g" id="big_div">
 	<div id="navbar" class="pure-u-1">
-	Title goes here.
+	MICROMANAGER
 	</div>
 	<div id="groupname" class="pure-u-1">
 		<h1>
@@ -32,7 +34,7 @@
 
 	<div class="pure-u-3-5" id="create_email">
 		<form name="input" method="post" action="/<%= groupname %>" id = "usrform">
-			<label>Email yo Friends!</label>
+			<label id = "txt">Email yo Friends!</label>
 			<br>
 			<div class="pure-g" id="logistics">
 				<div class="pure-u-1-2">
@@ -44,11 +46,11 @@
 				</div>
 				<div class="pure-u-1-2">
 					Time of Arrival (EST): <input type="time" name="time" value="<%= Time.now.strftime("%H:%M") %>">
-					<br>
+					
 					Date of Arrival: <input type="date" name="date" value="<%= Time.now.strftime("%Y-%m-%d") %>">
-					<br>
+					
 					How often? <input type="text" name="frequency" cols = 40 placeholder = "10(s,m,h, or d)">
-					<br>
+					
 					How many times? <input type="number" name="count" placeholder="Don't be pesky!">
 				</div>
 			</div>
