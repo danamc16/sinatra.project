@@ -1,6 +1,6 @@
 * {
 	text-align: center;
-	vertical-align: center;
+	
 	margin:auto;
 	font-family: 'Arimo', sans-serif;
 }
@@ -15,6 +15,7 @@
         box-sizing: border-box;
     }
 
+
 html, body {
 	background: url("http://nevaza.com/wp-content/uploads/2013/05/28-cloud-wallpapers.jpg");
 	height: 100%;
@@ -22,19 +23,24 @@ html, body {
 	position: fixed;
 }
 
-
+#big_div {
+	height:100%;
+	padding:0px;
+	font-family: 'Arimo', sans-serif;
+}
 
 .pure-u-1-5 {
-	position: relative;
+	
 	height: 100%;
 	overflow-y:scroll;
 }
 
 
 
-#message {
-	height:680px;
+#history {
+	height:800px;
 	overflow-y:scroll;
+
 }
 
 #usrform {

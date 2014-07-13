@@ -33,7 +33,11 @@
 
 	<div class="pure-u-3-5" id="create_email">
 		<form name="input" method="post" action="/<%= groupname %>" id = "usrform">
+<<<<<<< HEAD
 			<label>Email Your Group!</label>
+=======
+			<label id = "txt">Email yo Friends!</label>
+>>>>>>> aa9179b9e7eba3d16cf3093141d39ddb808c99d1
 			<br>
 			<div class="pure-g" id="logistics">
 				<div class="pure-u-1-2">
@@ -45,11 +49,11 @@
 				</div>
 				<div class="pure-u-1-2">
 					Time of Arrival (EST): <input type="time" name="time" value="<%= Time.now.strftime("%H:%M") %>">
-					<br>
+					
 					Date of Arrival: <input type="date" name="date" value="<%= Time.now.strftime("%Y-%m-%d") %>">
-					<br>
+					
 					How often? <input type="text" name="frequency" cols = 40 placeholder = "10(s,m,h, or d)">
-					<br>
+					
 					How many times? <input type="number" name="count" placeholder="Don't be pesky!">
 				</div>
 			</div>
